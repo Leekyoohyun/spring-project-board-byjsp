@@ -12,3 +12,11 @@
 - mybatis
 - jsp
 - tomcat 9.0.98
+
+
+## 진행과정
+- 회원가입 
+- DB연동(root-context.xml)
+- root-context gitignore처리
+- 로그인(http session 활용)
+- ..ing
