@@ -20,4 +20,8 @@ public class MemberRepository {
         //memberMapper.xml에 insert id = "save"
 
     }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        return sql.selectOne("Member.login", memberDTO);
+    }
 }

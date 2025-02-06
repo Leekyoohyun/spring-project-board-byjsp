@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/member") //공통주소는 이렇게 빼놓을 수 있음
@@ -25,6 +27,28 @@ public class MemberController {
             return "login";
         }else{
             return "save";
+        }
+    }
+
+    @GetMapping("/login")
+    public String loginForm(){
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute MemberDTO memberDTO , HttpSession session){
+        boolean loginResult = memberService.login(memberDTO);
+        /*
+        성공 실패에 따라 처리를 해야함.
+        로그인 하면 내 정보가 계속 따라다녀야 하니까
+        이걸 위해 session 활용해야함.
+        */
+        if(loginResult){
+            //session에다가 로그인한 사용자 정보를 입력하도록
+            session.setAttribute("loginEmail", memberDTO.getMemberEmail());
+            return "main";
+        }else{
+            return "login";
         }
     }
 }
