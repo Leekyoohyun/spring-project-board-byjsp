@@ -60,4 +60,12 @@ public class MemberController {
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
+
+    // /member?id=1
+    @GetMapping
+    public String findById(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "detail";
+    }
 }
