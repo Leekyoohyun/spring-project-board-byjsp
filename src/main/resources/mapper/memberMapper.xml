@@ -11,4 +11,7 @@
         /*둘다 만족하는 결과가 있는가?*/
         select * from member_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
     </select>
+    <select id = "findAll" resultType="member">
+        select * from member_table
+    </select>
 </mapper>
