@@ -5,6 +5,8 @@ import com.khdev.projectjsp.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor //파이널 붙은 필드만 가지고 생성자만듬 lombok
 public class MemberService {
@@ -21,5 +23,10 @@ public class MemberService {
         }else{
             return false;
         }
+    }
+
+    public List<MemberDTO> findAll() {
+        return memberRepository.findAll();
+
     }
 }
