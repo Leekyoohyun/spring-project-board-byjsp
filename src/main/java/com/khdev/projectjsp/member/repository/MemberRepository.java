@@ -38,4 +38,9 @@ public class MemberRepository {
     public void delete(Long id) {
         sql.delete("Member.delete", id);
     }
+
+    public MemberDTO findByMemberEmail(String loginEmail) {
+        //Mapper에 이메일 값을 넘겨줌
+        return sql.selectOne("Member.findByMemberEmail", loginEmail);
+    }
 }

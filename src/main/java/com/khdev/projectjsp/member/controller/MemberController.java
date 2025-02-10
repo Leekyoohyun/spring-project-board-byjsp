@@ -75,4 +75,15 @@ public class MemberController {
         //리스트 재요청하려고
         return "redirect:/member/";
     }
+
+    @GetMapping("/update")
+    //이제 누군지 알아야하니까 ->
+    public String updateForm(HttpSession session ,Model model){
+        //세션에 저장된 나의 이메일 가져오기
+        //loninEmail이라는 이름의 파라미터
+        String loginEmail = (String) session.getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
+        model.addAttribute("member", memberDTO);
+        return "update";
+    }
 }
