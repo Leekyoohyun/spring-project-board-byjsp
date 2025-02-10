@@ -35,3 +35,49 @@
 <br>
 회원수정<br>
 ![Image](https://github.com/user-attachments/assets/b4d51ecb-2d30-4b98-ba67-26d2fcce86de)
+
+
+```sql
+show databases;
+
+use db_khdev;
+
+
+create table board_table(
+    id bigint primary key auto_increment,
+    boardWriter varchar(50),
+    boardPass varchar(20),
+    boardTitle varchar(50),
+    boardContents varchar(500),
+    boardCreatedTime datetime default now(),
+    boardHits int default 0,
+    fileAttached int default 0
+);
+
+show tables;
+
+create table board_file_table
+(
+    id	bigint auto_increment primary key,
+    originalFileName varchar(100),
+    storedFileName varchar(100),
+    boardId bigint,
+    constraint fk_board_file foreign key(boardId) references board_table(id) on delete cascade
+);
+
+show tables;
+
+create table comment_table(
+    id bigint primary key auto_increment,
+    commentWriter varchar(50),
+    commentContents varchar(200),
+    boardId bigint,
+    commentCreatedTime datetime default now(),
+    constraint fk_comment_table foreign key (boardId) references board_table(id) on delete cascade
+);
+
+show tables;
+
+
+
+```
