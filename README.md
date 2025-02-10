@@ -17,7 +17,7 @@
 
 
 ## 진행과정
-- 회원가입 
+- 회원가입
 - DB연동(root-context.xml)
 - root-context gitignore처리
 - 로그인(http session 활용)
