@@ -76,6 +76,7 @@ public class MemberController {
         return "redirect:/member/";
     }
 
+    // 수정화면 요청
     @GetMapping("/update")
     //이제 누군지 알아야하니까 ->
     public String updateForm(HttpSession session ,Model model){
@@ -85,5 +86,24 @@ public class MemberController {
         MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
         model.addAttribute("member", memberDTO);
         return "update";
+    }
+
+    // 수정 처리
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO){
+        boolean result = memberService.update(memberDTO);
+        if(result){
+            return "redirect:/member?id="+memberDTO.getId();
+        } else{
+            return "index";
+        }
+    }
+
+    // 중복 체크
+    @PostMapping("/email-check")
+    public @ResponseBody String emailCheck(@RequestParam("memberEmail") String memberEmail){
+        System.out.println("memberEmail = "+memberEmail);
+        String checkResult = memberService.emailCheck(memberEmail);
+        return checkResult;
     }
 }

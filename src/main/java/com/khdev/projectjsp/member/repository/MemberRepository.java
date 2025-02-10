@@ -43,4 +43,8 @@ public class MemberRepository {
         //Mapper에 이메일 값을 넘겨줌
         return sql.selectOne("Member.findByMemberEmail", loginEmail);
     }
+
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update", memberDTO);
+    }
 }
