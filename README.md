@@ -81,3 +81,11 @@ show tables;
 
 
 ```
+
+## 글쓰기 기능
+
+### 페이징<br>
+![Image](https://github.com/user-attachments/assets/84c55442-3fa5-4855-b918-a29ed4a387e1)<br>
+
+### 수정
+![Image](https://github.com/user-attachments/assets/ec9eb018-249c-46a4-b2af-b724acde1e69)
