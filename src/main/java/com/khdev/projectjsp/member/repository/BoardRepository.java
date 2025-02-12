@@ -26,4 +26,8 @@ public class BoardRepository {
     public void deleteBoard(Long id) {
         sql.delete("deleteBoard", id);
     }
+
+    public BoardDTO findBoardById(Long id) {
+        return sql.selectOne("Board.findBoardById", id);
+    }
 }

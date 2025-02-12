@@ -43,4 +43,11 @@ public class BoardController {
         boardService.deleteBoard(id);
         return "redirect:/board/";
     }
+
+    @GetMapping
+    public String findBoardById(@RequestParam Long id, Model model){
+        BoardDTO boardDTO = boardService.findBoardById(id);
+        model.addAttribute("board", boardDTO);
+        return "boardDetail";
+    }
 }
