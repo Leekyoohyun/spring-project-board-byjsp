@@ -46,6 +46,7 @@ public class BoardController {
 
     @GetMapping
     public String findBoardById(@RequestParam Long id, Model model){
+        boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findBoardById(id);
         model.addAttribute("board", boardDTO);
         return "boardDetail";

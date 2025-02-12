@@ -28,4 +28,8 @@ public class BoardService {
     public BoardDTO findBoardById(Long id) {
         return boardRepository.findBoardById(id);
     }
+
+    public void updateHits(Long id) {
+        boardRepository.updateHits(id);
+    }
 }
