@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 @RequiredArgsConstructor
@@ -15,5 +17,13 @@ public class BoardRepository {
     public int save(BoardDTO boardDTO) {
         System.out.println(boardDTO);
         return sql.insert("Board.saveBoard", boardDTO);
+    }
+
+    public List<BoardDTO> findAll() {
+        return sql.selectList("Board.findAll");
+    }
+
+    public void deleteBoard(Long id) {
+        sql.delete("deleteBoard", id);
     }
 }

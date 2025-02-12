@@ -4,7 +4,10 @@ import com.khdev.projectjsp.member.dto.BoardDTO;
 import com.khdev.projectjsp.member.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,5 +29,18 @@ public class BoardController {
         }else{
             return "saveBoard";
         }
+    }
+
+    @GetMapping("/")
+    public String findAll(Model model){
+        List<BoardDTO> boardDTOList = boardService.findAll();
+        model.addAttribute("boardList", boardDTOList);
+        return "boardList";
+    }
+
+    @GetMapping("/deleteBoard")
+    public String deleteBoard(@RequestParam Long id){
+        boardService.deleteBoard(id);
+        return "redirect:/board/";
     }
 }
