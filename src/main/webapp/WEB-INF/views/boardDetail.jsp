@@ -14,10 +14,7 @@
 </head>
 <body>
 <table>
-  <tr>
-    <th>id</th>
-    <td>${board.id}</td>
-  </tr>
+
   <tr>
     <th>writer</th>
     <td>${board.boardWriter}</td>
@@ -75,7 +72,7 @@
   }
   const updateFn = () => {
     const id = '${board.id}';
-    location.href = "/board/update?id=" + id;
+    location.href = "/board/boardUpdate?id=" + id;
   }
   const deleteFn = () => {
     const id = '${board.id}';
