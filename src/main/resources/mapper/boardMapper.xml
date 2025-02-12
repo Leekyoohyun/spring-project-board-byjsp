@@ -13,6 +13,9 @@
     <delete id="deleteBoard" parameterType="Long">
         delete from board_table where id=#{id}
     </delete>
+    <select id="findBoardById" parameterType="Long" resultType="board">
+        select * from board_table where id=#{id}
+    </select>
 
 
 </mapper>
