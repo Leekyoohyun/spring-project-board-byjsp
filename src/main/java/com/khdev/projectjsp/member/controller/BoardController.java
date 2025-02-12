@@ -1,6 +1,7 @@
 package com.khdev.projectjsp.member.controller;
 
 import com.khdev.projectjsp.member.dto.BoardDTO;
+import com.khdev.projectjsp.member.dto.PageDTO;
 import com.khdev.projectjsp.member.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -81,6 +82,9 @@ public class BoardController {
         //해당 페이지에서 보여줄 글 목록
         List<BoardDTO> pagingList = boardService.pagingList(page);
         System.out.println("pagintList = " + pagingList);
-        return "index";
+        PageDTO pageDTO = boardService.pagingParam(page);
+        model.addAttribute("boardList", pagingList);
+        model.addAttribute("paging", pageDTO);
+        return "paging";
     }
 }
