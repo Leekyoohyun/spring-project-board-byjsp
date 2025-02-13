@@ -23,6 +23,10 @@
 - 로그인(http session 활용)
 - ..ing
 
+## 현재상황(계속 올릴거)
+- 400에러
+- 98124bce 여기 버전으로 돌려야함 
+
 ## 화면
 메인화면<br>
 ![Image](https://github.com/user-attachments/assets/66c5c81f-3490-49f5-9292-df577c058695)
