@@ -51,4 +51,8 @@ public class BoardRepository {
     public int boardCount() {
         return sql.selectOne("Board.boardCount");
     }
+
+    public void updateRecommend(int recommend) {
+        sql.update("Board.updateRecommend", recommend);
+    }
 }

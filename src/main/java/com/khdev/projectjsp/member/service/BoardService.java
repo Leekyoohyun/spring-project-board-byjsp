@@ -81,4 +81,9 @@ public class BoardService {
         pageDTO.setEndPage(endPage);
         return pageDTO;
     }
+
+
+    public void updateRecommend(int recommend) {
+        boardRepository.updateRecommend(recommend);
+    }
 }
