@@ -39,6 +39,7 @@
 <button onclick="listFn()">목록</button>
 <button onclick="updateFn()">수정</button>
 <button onclick="deleteFn()">삭제</button>
+<button onclick="updateRec()">추천!</button>
 
 <div>
   <input type="text" id="commentWriter" placeholder="작성자">
@@ -77,6 +78,10 @@
   const deleteFn = () => {
     const id = '${board.id}';
     location.href = "/board/delete?id=" + id;
+  }
+  const updateRec = () => {
+    const id = '${board.id}';
+    location.href = "/board/boardUpdate?id=" + id;
   }
 
   const commentWrite = () => {
