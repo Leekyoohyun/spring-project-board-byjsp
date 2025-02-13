@@ -31,6 +31,9 @@
     <select id="boardCount" resultType="Integer">
         select count(id) from board_table
     </select>
+    <update id="updateRecommend" parameterType="int">
+        update board_table set recommend = recommend+1
+    </update>
 
 
 </mapper>
